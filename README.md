@@ -1,107 +1,35 @@
-# API Learning 101 🚀
+# 📘 PokeAPI: Aprendiendo a abrir la "Caja de Datos"
 
-¡Bienvenido a API Learning 101! Este repositorio es tu guía completa para entender y trabajar con APIs.
+Este no es un proyecto de copiar y pegar. Es mi proceso de aprendizaje para entender cómo viajar por internet (APIs) y traer información de vuelta a mi consola de Ubuntu.
 
+## 🧠 Mi Filosofía: Entender antes de Correr
+He tardado en entregar porque **quiero saber lo que hago**. No me sirve que el código funcione si no entiendo cómo se conectan los "cables". He seguido el **Método Polya** y el **SDD** para no perderme en la documentación de la PokeAPI.
 
-## 📚 Qué aprenderás
+## 📦 Conceptos Clave (Mis Apuntes)
+Para no liarme con el código, uso estas metáforas:
+* **API**: El intermediario que nos da los datos.
+* **JSON**: El formato en el que llegan los datos, parecido a un diccionario.
+* **Desempaquetado**: Usar `.json()` para que el texto se convierta en carpetas y listas que JavaScript entienda.
+* **Navegación**:
+    * **El Punto (.)**: "Entra en la carpeta" para objetos.
+    * **El Corchete ([ ])**: "Elige de la estantería" para listas (Arrays). ¡Siempre empezamos desde el 0!
 
-Este repositorio incluye:
+## 🛠️ Lo que he construido (Ejercicio 1)
+He creado una función asíncrona para llamar a **Ditto**. He usado `console.log(data)` no solo para ver el nombre, sino para inspeccionar el "mapa" completo de la API y validar la estructura de los datos.
 
-- **Fundamentos completos de APIs** - métodos HTTP, códigos de estado, headers, principios REST  
-- **Backend funcional** - una API real con la que puedes interactuar  
-- **Colección de Postman** - pruebas de API listas para usar  
-- **Ejemplos prácticos** - demostraciones reales  
-- **Buenas prácticas** - enfoques estándar de la industria  
+```javascript
+async function getPokemon(name) {  
+  const url = `https://pokeapi.co/api/v2/pokemon/${name}`;  
+  const response = await fetch(url); // Pedimos el paquete
+  const data = await response.json(); // Abrimos la caja
+  
+  // Navegación por la carpeta de datos
+  console.log("Nombre:", data.name);
+  console.log("Altura:", data.height);
+  console.log("Peso:", data.weight);
+}
 
-## 📂 Estructura del repositorio
+## 👤 Autora
+Desarrollado con serenidad y código por **Ana**.
 
-```
-api-learning-101/
-├── docs/
-│   ├── 01-what-is-api.md
-│   ├── 02-http-methods.md
-│   ├── 03-status-codes.md
-│   ├── 04-rest-principles.md
-├── exercises/
-│   └── 01-pokeapi/
-│       ├── README.md   ← ejercicio a completar 
-├── backend/
-│   ├── api/
-│   │   └── index.js
-│   ├── data/
-│   │   └── users.json
-│   ├── package.json
-│   └── README.md
-└── 
-```
-
-## 🚀 Cómo usar este repositorio
-
-1. Sigue los documentos en orden:
-   - ¿Qué es una API?
-   - Métodos HTTP
-   - Códigos de estado
-   - REST
-
-### 1. Pruebas en local
-
-Si quieres porbar localmente:
-- Haz clic en **Fork** en GitHub
-- Esto creará una copia en tu cuenta  
-
-```bash
-# Clone the repository
-git clone https://github.com/Yeraldsb/api-101
-cd api-101
-code .
-
-# Install dependencies
-cd backend
-npm install
-
-# Run locally
-npm start
-```
-
-La API estara disponible en `http://localhost:3000`
-
-## 🎯 API Endpoints
-
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| GET | `/api/books` | Obtener todos los usuarios |
-| GET | `/api/books/:id` | Obtener usuario por ID |
-| POST | `/api/books` | Crear usuario |
-| PUT | `/api/books/:id` | Actualizar usuario |
-| DELETE | `/api/books/:id` | Eliminar usuario |
-| GET | `/api/reset` | Restablecer datos al estado inicial |
-
-**💡 Nota sobre la persistencia de datos:**
-- La API usa **almacenamiento en memoria** (¡no requiere base de datos!)
-- Los datos persisten durante la vida de la función serverless
-- Usa GET /api/reset para recargar los datos iniciales manualmente
-- Perfecto para aprender y probar sin preocuparte por limpiar datos
-
-## 📖 Ruta de aprendizaje
-
-Sigue estas guías en orden:
-
-1. [¿Qué es una API?](docs/01-what-is-api.md)
-2. [Métodos HTTP](docs/02-http-methods.md)
-3. [Códigos de estado](docs/03-status-codes.md)
-4. [Principios REST](docs/04-rest-principles.md)
-
-## 💻 Backend Technology
-
-- **Runtime**: Node.js
-- **Framework**: Express.js
-- **Storage**: JSON file (no database needed!)
-
-## 🤝 Contributing
-
-Este repositorio está diseñado con fines educativos.
-Puedes hacer fork y experimentar libremente.
-
----
-
-Happy Learning! 🎉
+🔗 **Mi GitHub:** [Haz clic aquí para ver mi perfil](https://github.com/AnaBHernandez)
